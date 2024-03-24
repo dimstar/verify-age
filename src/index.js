@@ -90,9 +90,6 @@ const ANIMATION_LENGTH = 420;
         return;
     }
 
-    // Display the message on page load
-    handleVisibility({ time: ANIMATION_LENGTH, element: AgeGate, visibility: 'visible' });
-
     AgeLegalButton.addEventListener('click', (e) => {
         e.preventDefault();
         handleVisibility({ time: ANIMATION_LENGTH, element: AgeGate, visibility: 'hidden' });
