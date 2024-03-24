@@ -82,6 +82,14 @@ const ANIMATION_LENGTH = 420;
     const AgeLegalButton = document.querySelector("#AgeLegal");
     const AgeIllegalButton = document.querySelector("#AgeIllegal");
     const AgeRestrictedMessage = document.querySelector("#AgeRestricted");
+
+    if (!AgeGate ||
+        !AgeLegalButton ||
+        !AgeIllegalButton ||
+        !AgeRestrictedMessage) {
+        return;
+    }
+
     // Display the message on page load
     handleVisibility({ time: ANIMATION_LENGTH, element: AgeGate, visibility: 'visible' });
 
