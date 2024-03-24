@@ -3,29 +3,20 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 require("@babel/register");
 
 const config = {
-  entry: ['@babel/polyfill','./src/index.js'],
+  entry: ['@babel/polyfill', './src/index.js'],
   output: {
     path: __dirname + '/public',
     filename: 'bundle.js'
   },
   module: {
-    rules : [
+    rules: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
         use: ['babel-loader']
       },
-      {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader']
-      }
     ]
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-        hash: true
-    })
-  ],
   resolve: {
     modules: [
       path.resolve('./src'),
@@ -38,20 +29,20 @@ const config = {
     port: 9000,
     open: true,
     stats: {
-        assets: false,
-        children: false,
-        chunks: false,
-        chunkModules: false,
-        colors: true,
-        entrypoints: false,
-        hash: false,
-        modules: false,
-        timings: false,
-        version: false,
+      assets: false,
+      children: false,
+      chunks: false,
+      chunkModules: false,
+      colors: true,
+      entrypoints: false,
+      hash: false,
+      modules: false,
+      timings: false,
+      version: false,
     }
   },
   watch: false,
-  devtool: 'source-map',
+  devtool: process.env.NODE_ENV === 'production' ? 'source-map' : false,
 };
 
 module.exports = config;
